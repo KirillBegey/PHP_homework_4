@@ -8,7 +8,7 @@ class StudentRate extends CommonRate
 
     public function ratePrice($kilometer, $minute, $age, $services = '')
     {
-        if ($age < 18 || $age > 25) {
+        if ($age < 18 || $age >= 25) {
             throw new Exception('Ваш возвраст не подходит!');
         } else {
             $ageCheck = $this->ageСheck($age);

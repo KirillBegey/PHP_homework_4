@@ -10,7 +10,7 @@ require "StudentRate.php";
 
 $rate = new BaseRate();
 try {
-    $rate->ratePrice(13, 7, 2, '');
+    $rate->ratePrice(13, 7, 20, '');
 } catch (Exception $e) {
     echo $e->getMessage();
 }
