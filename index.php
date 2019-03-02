@@ -9,5 +9,10 @@ require "DailyRate.php";
 require "StudentRate.php";
 
 $rate = new BaseRate();
-$rate->ratePrice(13, 7, 20, '');
+try {
+    $rate->ratePrice(13, 7, 2, '');
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
 

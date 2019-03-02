@@ -10,12 +10,12 @@ class BaseRate extends CommonRate
     {
         $ageCheck = $this->ageСheck($age);
         if ($age < 18 || $age > 65) {
-            echo "Ваш возвраст не подходит!";
+            throw new Exception('Ваш возвраст не подходит!');
         } else {
             if (empty($services)) {
                 echo $this->basicCalculation($kilometer, $minute, $ageCheck) * $ageCheck;
             } elseif ($services == 'gps') {
-                echo $this->basicCalculation($kilometer, $minute, $ageCheck) * $ageCheck + $this->Gps($minute, $this->priceGps);
+                echo $this->basicCalculation($kilometer, $minute, $ageCheck) * $ageCheck + $this->Gps($minute);
             }
         }
     }

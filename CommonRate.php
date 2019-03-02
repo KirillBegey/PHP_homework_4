@@ -1,8 +1,6 @@
 <?php
 abstract class CommonRate implements InterfaceRatePrice
 {
-    protected $priceGps = 15;
-
     use GpsTrait;
 
     public function ageСheck($age)

@@ -11,16 +11,16 @@ class HourlyRate extends CommonRate
     {
         $ageCheck = $this->ageСheck($age);
         if ($age < 18 || $age > 65) {
-            echo "Ваш возвраст не подходит!";
+            throw new Exception('Ваш возвраст не подходит!');
         } else {
             if (empty($services)) {
                 echo $this->basicCalculation($minute, $ageCheck) * $ageCheck;
             } elseif ($services == 'gps') {
-                echo $this->basicCalculation($minute, $ageCheck) * $ageCheck + $this->Gps($minute, $this->priceGps);
+                echo $this->basicCalculation($minute, $ageCheck) * $ageCheck + $this->Gps($minute);
             } elseif ($services == 'driver') {
                 echo $this->basicCalculation($minute, $ageCheck) * $ageCheck + $this->driver();
             } elseif ($services == 'gps, driver') {
-                echo $this->basicCalculation($minute, $ageCheck) * $ageCheck + $this->Gps($minute, $this->priceGps) + $this->driver();
+                echo $this->basicCalculation($minute, $ageCheck) * $ageCheck + $this->Gps($minute) + $this->driver();
             }
         }
     }
